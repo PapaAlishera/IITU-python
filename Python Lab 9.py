@@ -60,3 +60,30 @@ my_dict = {'a': 500, 'b': 5874, 'c': 560, 'd': 400, 'e': 5874, 'f': 20}
 sort_zn = sorted(my_dict, key=my_dict.get, reverse=True)[:3]
 
 print(sort_zn)
+
+
+""" Задание 6
+Напишите код, который преобразует целое число в строку, несмотря на то, что его можно использовать в любой системе счисления. """
+
+n = input("Enter a number: ")
+b = int(input("Enter a base: "))
+
+n = input("Enter a number: ")
+b = int(input("Enter a base: "))
+stroka = str(int(n, b))
+print(stroka)
+
+""" Задание 7
+Вам нужно вывести первые n линий треугольника Паскаля. В этом треугольнике есть единицы измерения вверху и по бокам, и каждое число внутри равно сумме двух чисел над ним. """
+
+n = int(input())
+pascal = []
+
+for i in range(n):
+    row = [1] * (i + 1)
+    for j in range(1, i):
+        row[j] = pascal[i - 1][j - 1] + pascal[i - 1][j]
+    pascal.append(row)
+
+for row in pascal:
+    print(" " * (n - len(row)), " ".join(map(str, row)))
